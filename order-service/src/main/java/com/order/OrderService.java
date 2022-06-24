@@ -13,7 +13,11 @@ public class OrderService {
 
 	void insertOrder(OrderVO order) {
 		repository.save(order);
-		template.getForEntity("http://EMAIL-SERVICE/email/"+order.getEmail(), String.class);
+//		template.getForEntity("http://EMAIL-SERVICE/email/"+order.getEmail(), String.class);
 		
+	}
+
+	public OrderVO getByItem(String item) {
+		return repository.findByItem(item);
 	}
 }
